@@ -90,6 +90,13 @@ sans-serif;
         text-decoration: none;
     }
 
+    &__container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-content: space-between;
+    }
+
     &__button_add {
         width: 90px;
         height: 30px;
@@ -100,6 +107,12 @@ sans-serif;
         border-radius: 10px;
 
         align-self: center;
+    }
+
+    &__input_add {
+        max-width: 50%;
+        border: 0.5px solid #000;
+        border-radius: 10px;
     }
 }
 
@@ -128,8 +141,20 @@ sans-serif;
         align-self: flex-start;
         padding: 0;
         color: #C2C2C2;
+        padding-top: 10px;
 
+        &:hover {
+            color: #000;
+            cursor: pointer;
+        }
     }
+
+    &__input_add {
+        border: 0.5px solid #000;
+        border-radius: 10px;
+    }
+
+
 }
 
 

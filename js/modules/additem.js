@@ -1,5 +1,6 @@
 import * as mainobj from '../objects/mainobj';
 import renderContent from "./content";
+import save from './save';
 
 function addItem(listObj) {
         document.querySelector('.main-todo__button_add').addEventListener('click', () => {
@@ -15,7 +16,7 @@ function addItem(listObj) {
                     'main-todo__item',
                     id
                 );
-                input = '2';
+                save();
             });
 }
 
