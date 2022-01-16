@@ -11,7 +11,8 @@ function connectMenuWithContent({attr, obj, elementClassName, parentElement}) {
                 renderContent(
                     obj[id].name,
                     obj[id].arr,
-                    elementClassName
+                    elementClassName,
+                    id
                 );
             }
         });

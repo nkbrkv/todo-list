@@ -2,6 +2,74 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./js/modules/additem.js":
+/*!*******************************!*\
+  !*** ./js/modules/additem.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _objects_mainobj__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../objects/mainobj */ "./js/objects/mainobj.js");
+/* harmony import */ var _content__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./content */ "./js/modules/content.js");
+
+
+
+function addItem(listObj) {
+        document.querySelector('.main-todo__button_add').addEventListener('click', () => {
+                let input = document.querySelector('.main-todo__input_add').value;
+                const id = document.querySelector('.main-todo__list').getAttribute('data-id');
+        
+                _objects_mainobj__WEBPACK_IMPORTED_MODULE_0__.listObj[id].arr.push(input);
+                document.querySelector('.main-todo__list').textContent = '';
+        
+                (0,_content__WEBPACK_IMPORTED_MODULE_1__["default"])(
+                    _objects_mainobj__WEBPACK_IMPORTED_MODULE_0__.listObj[id].name,
+                    _objects_mainobj__WEBPACK_IMPORTED_MODULE_0__.listObj[id].arr,
+                    'main-todo__item',
+                    id
+                );
+                input = '2';
+            });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addItem);
+
+/***/ }),
+
+/***/ "./js/modules/addlist.js":
+/*!*******************************!*\
+  !*** ./js/modules/addlist.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _objects_note__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../objects/note */ "./js/objects/note.js");
+/* harmony import */ var _objects_mainobj__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../objects/mainobj */ "./js/objects/mainobj.js");
+/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./menu */ "./js/modules/menu.js");
+/* harmony import */ var _connection__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./connection */ "./js/modules/connection.js");
+
+
+
+
+
+function addList(listObj) {
+    document.querySelector('#menu__btn').addEventListener('click', () => {
+        listObj.push(new _objects_note__WEBPACK_IMPORTED_MODULE_0__["default"]([], 'new List'));
+        (0,_menu__WEBPACK_IMPORTED_MODULE_2__["default"])(_objects_mainobj__WEBPACK_IMPORTED_MODULE_1__.menuObj);
+        (0,_connection__WEBPACK_IMPORTED_MODULE_3__["default"])(_objects_mainobj__WEBPACK_IMPORTED_MODULE_1__.connectionObj);
+    });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addList);
+
+/***/ }),
+
 /***/ "./js/modules/burger.js":
 /*!******************************!*\
   !*** ./js/modules/burger.js ***!
@@ -63,7 +131,8 @@ function connectMenuWithContent({attr, obj, elementClassName, parentElement}) {
                 (0,_content__WEBPACK_IMPORTED_MODULE_0__["default"])(
                     obj[id].name,
                     obj[id].arr,
-                    elementClassName
+                    elementClassName,
+                    id
                 );
             }
         });
@@ -84,9 +153,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function renderContent(title = 'List', arr = [], elementClassName) {
+function renderContent(title = 'List', arr = [], elementClassName, id) {
     const titleElement = document.querySelector('.main-todo__title');
     const listsParent = document.querySelector('.main-todo__list');
+    listsParent.setAttribute('data-id', id);
 
     titleElement.textContent = title;
     arr.forEach(item => {
@@ -97,7 +167,7 @@ function renderContent(title = 'List', arr = [], elementClassName) {
                 <span class="main-todo__body">${item}</span> 
                 `;
         listsParent.append(listItem);
-    });  
+    });
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderContent);
@@ -131,6 +201,56 @@ function renderMenu({obj, parent, element}) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderMenu);
+
+/***/ }),
+
+/***/ "./js/objects/mainobj.js":
+/*!*******************************!*\
+  !*** ./js/objects/mainobj.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "listObj": () => (/* binding */ listObj),
+/* harmony export */   "menuObj": () => (/* binding */ menuObj),
+/* harmony export */   "connectionObj": () => (/* binding */ connectionObj)
+/* harmony export */ });
+let listObj = [];
+
+const menuObj = {
+    obj: listObj,
+    parent: '.main-menu__list',
+    element: 'main-menu__item'
+};
+const connectionObj = {
+    attr: 'data-menuItem',
+    obj: listObj,
+    elementClassName: 'main-todo__item',
+    parentElement: '.main-todo__list'
+};
+
+
+
+/***/ }),
+
+/***/ "./js/objects/note.js":
+/*!****************************!*\
+  !*** ./js/objects/note.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+class Note {
+    constructor(arr, name) {
+        this.arr = arr;
+        this.name = name;
+    }
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Note); 
 
 /***/ })
 
@@ -197,53 +317,30 @@ var __webpack_exports__ = {};
   !*** ./js/script.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/burger */ "./js/modules/burger.js");
-/* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu */ "./js/modules/menu.js");
-/* harmony import */ var _modules_connection__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/connection */ "./js/modules/connection.js");
+/* harmony import */ var _objects_mainobj__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./objects/mainobj */ "./js/objects/mainobj.js");
+/* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/burger */ "./js/modules/burger.js");
+/* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/menu */ "./js/modules/menu.js");
+/* harmony import */ var _modules_connection__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/connection */ "./js/modules/connection.js");
+/* harmony import */ var _modules_additem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/additem */ "./js/modules/additem.js");
+/* harmony import */ var _modules_addlist__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/addlist */ "./js/modules/addlist.js");
 
 
 
 
 
-// import addItem from './modules/additem';
+
+
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
-
-    class Note {
-        constructor(arr, name) {
-            this.arr = arr;
-            this.name = name;
-        }
-    }
-
-    let listObj = [];
-
-    const menuObj = {
-        obj: listObj,
-        parent: '.main-menu__list',
-        element: 'main-menu__item'
-    };
-    const connectionObj = {
-        attr: 'data-menuItem', 
-        obj: listObj, 
-        elementClassName: 'main-todo__item', 
-        parentElement: '.main-todo__list'
-    };
     
-    (0,_modules_burger__WEBPACK_IMPORTED_MODULE_0__["default"])('#burger', '.main-menu');
-    (0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__["default"])(menuObj);
-    (0,_modules_connection__WEBPACK_IMPORTED_MODULE_2__["default"])(connectionObj);
-
-    document.querySelector('#menu__btn').addEventListener('click', () => {
-        listObj.push(new Note([], 'new List'));
-        (0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__["default"])(menuObj);
-        (0,_modules_connection__WEBPACK_IMPORTED_MODULE_2__["default"])(connectionObj);
-    });
-
-    document.querySelector('.main-todo__button_add').addEventListener('click', event => {
-        addItem(listObj, '.main-todo__list', event.target);
-    });
-
+    (0,_modules_burger__WEBPACK_IMPORTED_MODULE_1__["default"])('#burger', '.main-menu');
+    (0,_modules_menu__WEBPACK_IMPORTED_MODULE_2__["default"])(_objects_mainobj__WEBPACK_IMPORTED_MODULE_0__.menuObj);
+    (0,_modules_connection__WEBPACK_IMPORTED_MODULE_3__["default"])(_objects_mainobj__WEBPACK_IMPORTED_MODULE_0__.connectionObj);
+    (0,_modules_addlist__WEBPACK_IMPORTED_MODULE_5__["default"])(_objects_mainobj__WEBPACK_IMPORTED_MODULE_0__.listObj);
+    (0,_modules_additem__WEBPACK_IMPORTED_MODULE_4__["default"])(_objects_mainobj__WEBPACK_IMPORTED_MODULE_0__.listObj);
+    
 });
 })();
 

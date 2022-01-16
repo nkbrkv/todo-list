@@ -1,6 +1,7 @@
-function renderContent(title = 'List', arr = [], elementClassName) {
+function renderContent(title = 'List', arr = [], elementClassName, id) {
     const titleElement = document.querySelector('.main-todo__title');
     const listsParent = document.querySelector('.main-todo__list');
+    listsParent.setAttribute('data-id', id);
 
     titleElement.textContent = title;
     arr.forEach(item => {
@@ -11,7 +12,7 @@ function renderContent(title = 'List', arr = [], elementClassName) {
                 <span class="main-todo__body">${item}</span> 
                 `;
         listsParent.append(listItem);
-    });  
+    });
 }
 
 export default renderContent;
