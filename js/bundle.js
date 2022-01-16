@@ -94,10 +94,10 @@ function renderContent(title = 'List', arr = [], elementClassName) {
         listItem.classList.add(elementClassName);
         listItem.innerHTML = `
                 <input class="main-todo__checkbox" type="checkbox" name="todo-item" id="">
-                <span class="main-todo__body">${item}</span>
+                <span class="main-todo__body">${item}</span> 
                 `;
         listsParent.append(listItem);
-    });
+    });  
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderContent);
