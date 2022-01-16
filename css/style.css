@@ -1,0 +1,145 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  max-width: 100%;
+  height: 100%;
+}
+
+.header__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #DC4C3F;
+  color: #fff;
+  font-size: 24px;
+  height: 50px;
+  padding: 0 15px;
+}
+
+.header__logo {
+  font-family: 'Luckiest Guy', cursive;
+}
+
+.main__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+}
+
+.main-menu {
+  background-color: #FAFAFA;
+  border-right: 1px solid #EAEAEA;
+  width: 30%;
+  min-width: 150px;
+  max-width: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 15px 15px;
+}
+
+.main-menu__title {
+  margin: 0;
+}
+
+.main-menu__list {
+  padding: 0 0;
+  list-style: none;
+}
+
+.main-menu__item {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.main-menu__item:hover {
+  font-weight: 600;
+}
+
+.main-menu__item:active {
+  font-weight: 600;
+}
+
+.main-menu__checkbox {
+  color: #DC4C3F;
+}
+
+.main-menu__icon {
+  color: #DC4C3F;
+}
+
+.main-menu__link {
+  color: #000;
+  text-decoration: none;
+}
+
+.main-menu__button_add {
+  width: 90px;
+  height: 30px;
+  background-color: #DC4C3F;
+  color: #fff;
+  font-weight: 900;
+  border: 0;
+  border-radius: 10px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.main-todo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 40px 40px;
+  max-width: 100%;
+}
+
+.main-todo__title {
+  margin: 0;
+}
+
+.main-todo__list {
+  padding: 0;
+}
+
+.main-todo__item {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.main-todo__button_add {
+  border: 0;
+  background-color: #fff;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  padding: 0;
+  color: #C2C2C2;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=style.css.map */

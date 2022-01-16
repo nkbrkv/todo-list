@@ -1,0 +1,143 @@
+$orange: #DC4C3F;
+$font: 'Roboto',
+sans-serif;
+
+// General
+* {
+    font-family: $font;
+}
+
+
+.container {
+    max-width: 100%;
+    height: 100%;
+    // margin: 0 auto;
+}
+
+// Header
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: $orange;
+    color: #fff;
+    font-size: 24px;
+    height: 50px;
+
+    padding: 0 15px;
+
+}
+
+.header__logo {
+    font-family: 'Luckiest Guy', cursive;
+}
+
+// Main
+
+.main__container {
+    display: flex;
+    height: 100vh;
+}
+
+.main-menu {
+
+
+    background-color: #FAFAFA;
+    border-right: 1px solid #EAEAEA;
+
+    width: 30%;
+    min-width: 150px;
+    max-width: 250px;
+
+    display: flex;
+    flex-direction: column;
+    padding: 15px 15px;
+
+    &__title {
+        margin: 0;
+    }
+
+    &__list {
+        padding: 0 0;
+        list-style: none;
+    }
+
+    &__item {
+        margin-bottom: 10px;
+        cursor: pointer;
+        
+        &:hover {
+            font-weight: 600;
+        }
+
+        &:active {
+            font-weight: 600;
+        }
+    }
+
+    &__checkbox {
+        color: $orange;
+    }
+
+    &__icon {
+        color: $orange;
+    }
+
+    &__link {
+        color: #000;
+        text-decoration: none;
+    }
+
+    &__button_add {
+        width: 90px;
+        height: 30px;
+        background-color: $orange;
+        color: #fff;
+        font-weight: 900;
+        border: 0;
+        border-radius: 10px;
+
+        align-self: center;
+    }
+}
+
+.main-todo {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 40px;
+    max-width: 100%;
+
+    &__title {
+        margin: 0;
+    }
+
+    &__list {
+        padding: 0;
+    }
+
+    &__item {
+        list-style: none;
+        margin-bottom: 10px;
+    }
+
+    &__button_add {
+        border: 0;
+        background-color: #fff;
+        align-self: flex-start;
+        padding: 0;
+        color: #C2C2C2;
+
+    }
+}
+
+
+// Action
+.hide {
+    display: none;
+}
+
+.show {
+    display: flex;
+}
